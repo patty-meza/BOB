@@ -39,7 +39,6 @@ def getFrames():
   return angle_sequence
 
 
-
 def getRawAngles():
    return frames
 
