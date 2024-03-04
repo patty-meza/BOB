@@ -12,6 +12,8 @@ frames = [
     [0, 20, 0, 0, 0, 20, 60, 90], # Frame 8 (Stance)
 ]
 
+def getRawAngles():
+   return frames
 
 # Motor IDs
 motor_ids = [11, 12, 13, 14, 21, 22, 23, 24]
@@ -39,10 +41,5 @@ def getFrames():
   return angle_sequence
 
 
-def getRawAngles():
-   return frames
 
-# print(getFrames()[1])
-# print(getFrames()[2])
-# print(getFrames()[3])
-# print(getFrames()[4])
+
