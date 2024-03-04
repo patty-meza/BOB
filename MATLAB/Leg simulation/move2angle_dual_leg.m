@@ -99,8 +99,8 @@ end
 for t = 1:max(num_frames1, num_frames2)
     % Update first leg
     if t <= num_frames1
-        hip_angle1 = hip_bend_angles1(t); % Interpolate hip angle for the first leg
-        knee_angle1 = hip_bend_angles1(t) + knee_bend_angles1(t); % Interpolate knee angle for the first leg
+        hip_angle1 = hip_bend_angles1(t)*(-1); % Interpolate hip angle for the first leg
+        knee_angle1 = (hip_bend_angles1(t) + knee_bend_angles1(t))*(-1); % Interpolate knee angle for the first leg
         hip_end1 = hip_joint1 + thigh_length * [sind(hip_angle1), -cosd(hip_angle1)];
         knee_joint1 = hip_end1;
         calf_end1 = knee_joint1 + calf_length * [sind(knee_angle1), -cosd(knee_angle1)];
@@ -109,8 +109,8 @@ for t = 1:max(num_frames1, num_frames2)
 
     % Update second leg
     if t <= num_frames2
-        hip_angle2 = hip_bend_angles2(t); % Interpolate hip angle for the second leg
-        knee_angle2 = hip_bend_angles2(t) + knee_bend_angles2(t); % Interpolate knee angle for the second leg
+        hip_angle2 = hip_bend_angles2(t)*(-1); % Interpolate hip angle for the second leg
+        knee_angle2 = (hip_bend_angles2(t) + knee_bend_angles2(t))*(-1); % Interpolate knee angle for the second leg
         hip_end2 = hip_joint2 + thigh_length * [sind(hip_angle2), -cosd(hip_angle2)];
         knee_joint2 = hip_end2;
         calf_end2 = knee_joint2 + calf_length * [sind(knee_angle2), -cosd(knee_angle2)];

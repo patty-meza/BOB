@@ -60,8 +60,8 @@ end
 
 for t = 1:num_frames
     % Interpolate hip and knee joint angles
-    hip_angle = hip_bend_angles(t); % Interpolate hip angle
-    knee_angle = hip_bend_angles(t) + knee_bend_angles(t); % Interpolate knee angle
+    hip_angle = hip_bend_angles(t)*(-1); % Interpolate hip angle
+    knee_angle = (hip_bend_angles(t) + knee_bend_angles(t))*(-1); % Interpolate knee angle
 
     % Calculate new joint positions
     hip_end = hip_joint + thigh_length * [sind(hip_angle), -cosd(hip_angle)];
