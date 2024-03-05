@@ -1,5 +1,5 @@
 # Sample data
-print("test")
+print("Arrays Imported!")
 
 frames = [
     [0, 0, 0, 90, 0, 0, 0, 0], # Frame 1 (Forward swing)
