@@ -2,16 +2,15 @@
 print("test")
 
 frames = [
-    [0, 0, 30, -90, 0, 20, -20, 0], # Frame 1 (Forward swing)
-    [0, 20, 60, 90, 0, 20, 0, 0], # Frame 2 (Mid swing)
-    [0, 20, -20, 20, 0, 0, 30, -90], # Frame 3 (Backward swing)
-    [0, 20, 0, 0, 0, 20, 60, 90], # Frame 4 (Stance)
-    [0, 0, 30, -90, 0, 20, -20, 0], # Frame 5 (Forward swing)
-    [0, 20, 60, 90, 0, 20, 0, 0], # Frame 6 (Mid swing)
-    [0, 20, -20, 20, 0, 0, 30, -90], # Frame 7 (Backward swing)
-    [0, 20, 0, 0, 0, 20, 60, 90], # Frame 8 (Stance)
+    [0, 0, 0, 90, 0, 0, 0, 0], # Frame 1 (Forward swing)
+    [0, 0, -60, 90, 0, 0, 0, 5], # Frame 2 (Mid swing)
+    [0, 0, -45, 40, 0, 0, 30, 20], # Frame 3 (Backward swing)
+    [0, 0, -30, 0, 0, 0, 30, 60], # Frame 4 (Stance)
+    [0, 0, 0, 0, 0, 0, 0, 90], # Frame 5 (Forward swing)
+    [0, 0, 0, 5, 0, 0, -60, 90], # Frame 6 (Mid swing)
+    [0, 0, 30, 20, 0, 0, -45, 40], # Frame 7 (Backward swing)
+    [0, 0, 30, 60, 0, 0, -30, 0], # Frame 8 (Stance)
 ]
-
 def getRawAngles():
    return frames
 
