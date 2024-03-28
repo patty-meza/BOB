@@ -55,7 +55,11 @@ def read_all_sensors(prev_time, prev_gyro):
     gx %= 1
     gy %= 1
     gz %= 1
-    
+
+    ## update input variables
+    prev_time = data_time
+    prev_gyro = (gx, gy, gz)
+
     # Print IMU data
     print("Acc X:", round(ax, 3), "Acc Y:", round(ay,3), "Acc Z:", round(az,3), "Gyr X:", round(gx,3), "Gyr Y:", round(gy,3), "Gyr Z:", round(gz,3))
     # Print pressure sensor data
@@ -63,3 +67,11 @@ def read_all_sensors(prev_time, prev_gyro):
 
     return data_time, (ax, ay, az), (gx, gy, gz), (toe_pressure_1, toe_pressure_2, heel_pressure_1, heel_pressure_2)
 
+# Initialize 
+prev_gyro = (0, 0, 0)
+prev_time = time.time()
+
+# Call the read_all_sensors function 100 times in a loop
+for _ in range(100):
+    read_all_sensors(prev_time, prev_gyro)
+    time.sleep(0.1)  # Add a delay of 1 second between each call
