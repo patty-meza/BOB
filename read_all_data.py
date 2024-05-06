@@ -10,6 +10,24 @@ def normalize_pressure_sensor(voltage):
     ##normalized_value = max(0, min(normalized_value, 1))
     return normalized_value
 
+def read_acc():
+    """
+    Read accelerometer data.
+    Returns:
+    - accelerometer readings (ax, ay, az) [gs]
+    """
+    imu.set_accelerometer_low_pass(enabled=True, mode=5)
+    imu = ICM20948() ## create IMU object
+    
+
+    ############ IMU READINGS ##########
+    ax, ay, az, gx_raw, gy_raw, gz_raw = imu.read_accelerometer_gyro_data() # Read raw IMU data 
+    ## accelerometer is in units of gs (sitting flat on table: az = 1, freefall: az = 0)
+
+    # Print IMU data
+    print("Acc X:", round(ax, 3), "Acc Y:", round(ay,3), "Acc Z:", round(az,3))
+   
+    return (ax, ay, az)
 
 def read_all_sensors(prev_time, prev_gyro):
     """
@@ -67,11 +85,17 @@ def read_all_sensors(prev_time, prev_gyro):
 
     return data_time, (ax, ay, az), (gx, gy, gz), (toe_pressure_1, toe_pressure_2, heel_pressure_1, heel_pressure_2)
 
-# Initialize 
-prev_gyro = (0, 0, 0)
-prev_time = time.time()
+# # Initialize 
+# prev_gyro = (0, 0, 0)
+# prev_time = time.time()
 
-# Call the read_all_sensors function 100 times in a loop
+# # Call the read_all_sensors function 100 times in a loop
+# for _ in range(100):
+#     read_all_sensors(prev_time, prev_gyro)
+#     time.sleep(0.1)  # Add a delay of 1 second between each call
+
+### Test accelerometer
+
 for _ in range(100):
-    read_all_sensors(prev_time, prev_gyro)
+    read_all_sensors()
     time.sleep(0.1)  # Add a delay of 1 second between each call
